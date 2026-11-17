@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI COP 제4회</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans KR", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      transition: background-color 0.3s ease;
+    }
+    main {
+      background: var(--card);
+      width: 100%;
+      max-width: 560px;
+      padding: clamp(24px, 6vw, 48px);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(1.5rem, 5vw, 2.25rem);
+      line-height: 1.3;
+      word-break: keep-all;
+    }
+    .version {
+      display: inline-block;
+      margin: 0 0 28px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    button {
+      font: inherit;
+      font-weight: 600;
+      padding: 12px 24px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      width: 100%;
+      max-width: 280px;
+    }
+    button:hover { filter: brightness(1.1); }
+    button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }
+    .current { margin: 16px 0 0; color: var(--muted); font-size: 0.875rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>AI COP 제4회 · 2026.11.17</h1>
+    <p class="version">배포 버전 v1</p>
+    <div>
+      <button type="button" id="bg-btn">배경색 바꾸기</button>
+    </div>
+    <p class="current" id="bg-label" aria-live="polite">현재 배경: #f5f7fb</p>
+  </main>
+  <script>
+    (function () {
+      var colors = ['#f5f7fb', '#fde68a', '#bbf7d0', '#bfdbfe', '#fbcfe8', '#ddd6fe'];
+      var index = 0;
+      var btn = document.getElementById('bg-btn');
+      var label = document.getElementById('bg-label');
+      btn.addEventListener('click', function () {
+        index = (index + 1) % colors.length;
+        document.body.style.backgroundColor = colors[index];
+        label.textContent = '현재 배경: ' + colors[index];
+      });
+    })();
+  </script>
+</body>
+</html>

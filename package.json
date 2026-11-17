@@ -1,0 +1,10 @@
+{
+  "name": "cop-deploy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI COP 제4회 배포 실습용 정적 페이지",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}
